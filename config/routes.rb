@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  root "vehicles#index"
   # Routes for the Location resource:
 
   # CREATE
