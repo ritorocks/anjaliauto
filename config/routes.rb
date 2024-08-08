@@ -1,24 +1,5 @@
 Rails.application.routes.draw do
 
-  # Routes for the Trip resource:
-
-  # CREATE
-  post("/insert_trip", { :controller => "trips", :action => "create" })
-          
-  # READ
-  get("/trips", { :controller => "trips", :action => "index" })
-  
-  get("/trips/:path_id", { :controller => "trips", :action => "show" })
-  
-  # UPDATE
-  
-  post("/modify_trip/:path_id", { :controller => "trips", :action => "update" })
-  
-  # DELETE
-  get("/delete_trip/:path_id", { :controller => "trips", :action => "destroy" })
-
-  #------------------------------
-
   # Routes for the Guest resource:
 
   # CREATE
