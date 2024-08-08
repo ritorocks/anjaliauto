@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Guest #<%= @the_guest.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/guests">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_guest/<%= @the_guest.id %>">
+          Delete guest
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_guest.name %>
+      </dd>
+
+      <dt>
+        Turo profile
+      </dt>
+      <dd>
+        <%= @the_guest.turo_profile %>
+      </dd>
+
+      <dt>
+        Phone
+      </dt>
+      <dd>
+        <%= @the_guest.phone %>
+      </dd>
+
+      <dt>
+        Trips count
+      </dt>
+      <dd>
+        <%= @the_guest.trips_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_guest.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_guest.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit guest
+    </h2>
+
+    <form action="/modify_guest/<%= @the_guest.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_guest.name %>">
+      </div>
+
+      <div>
+        <label for="turo_profile_box">
+          Turo profile
+        </label>
+
+        <input type="text" id="turo_profile_box" name="query_turo_profile" value="<%= @the_guest.turo_profile %>">
+      </div>
+
+      <div>
+        <label for="phone_box">
+          Phone
+        </label>
+
+        <input type="text" id="phone_box" name="query_phone" value="<%= @the_guest.phone %>">
+      </div>
+
+      <div>
+        <label for="trips_count_box">
+          Trips count
+        </label>
+
+        <input type="text" id="trips_count_box" name="query_trips_count" value="<%= @the_guest.trips_count %>">
+      </div>
+
+      <button>
+        Update guest
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

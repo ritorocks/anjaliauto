@@ -1,5 +1,24 @@
 Rails.application.routes.draw do
 
+  # Routes for the Guest resource:
+
+  # CREATE
+  post("/insert_guest", { :controller => "guests", :action => "create" })
+          
+  # READ
+  get("/guests", { :controller => "guests", :action => "index" })
+  
+  get("/guests/:path_id", { :controller => "guests", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_guest/:path_id", { :controller => "guests", :action => "update" })
+  
+  # DELETE
+  get("/delete_guest/:path_id", { :controller => "guests", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Vehicle resource:
 
   # CREATE

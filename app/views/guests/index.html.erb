@@ -1,0 +1,134 @@
+<div>
+  <div>
+    <h1>
+      List of all guests
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new guest
+    </h2>
+
+    <form action="/insert_guest" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="turo_profile_box">
+          Turo profile
+        </label>
+
+        <input type="text" id="turo_profile_box" name="query_turo_profile">
+      </div>
+
+      <div>
+        <label for="phone_box">
+          Phone
+        </label>
+
+        <input type="text" id="phone_box" name="query_phone">
+      </div>
+
+      <div>
+        <label for="trips_count_box">
+          Trips count
+        </label>
+
+        <input type="text" id="trips_count_box" name="query_trips_count">
+      </div>
+
+      <button>
+        Create guest
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Turo profile
+        </th>
+
+        <th>
+          Phone
+        </th>
+
+        <th>
+          Trips count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_guests.each do |a_guest| %>
+      <tr>
+        <td>
+          <%= a_guest.id %>
+        </td>
+
+        <td>
+          <%= a_guest.name %>
+        </td>
+
+        <td>
+          <%= a_guest.turo_profile %>
+        </td>
+
+        <td>
+          <%= a_guest.phone %>
+        </td>
+
+        <td>
+          <%= a_guest.trips_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_guest.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_guest.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/guests/<%= a_guest.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
