@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Location #<%= @the_location.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/locations">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_location/<%= @the_location.id %>">
+          Delete location
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_location.name %>
+      </dd>
+
+      <dt>
+        Trips count
+      </dt>
+      <dd>
+        <%= @the_location.trips_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_location.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_location.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit location
+    </h2>
+
+    <form action="/modify_location/<%= @the_location.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_location.name %>">
+      </div>
+
+      <div>
+        <label for="trips_count_box">
+          Trips count
+        </label>
+
+        <input type="text" id="trips_count_box" name="query_trips_count" value="<%= @the_location.trips_count %>">
+      </div>
+
+      <button>
+        Update location
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

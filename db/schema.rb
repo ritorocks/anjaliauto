@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_08_193017) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_08_193108) do
   create_table "employees", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -41,6 +41,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_08_193017) do
     t.boolean "status"
     t.integer "vehicle_id"
     t.integer "employee_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.integer "trips_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
