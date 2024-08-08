@@ -10,12 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_08_174204) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_08_183054) do
   create_table "guests", force: :cascade do |t|
     t.string "name"
     t.string "turo_profile"
     t.integer "phone"
     t.integer "trips_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.integer "turo_reservation_number"
+    t.date "start_date"
+    t.time "start_time"
+    t.date "end_date"
+    t.time "end_time"
+    t.integer "vehicle_id"
+    t.integer "guest_id"
+    t.integer "total_distance_included"
+    t.integer "estimated_earnings"
+    t.datetime "start_day"
+    t.datetime "end_day"
+    t.string "extras"
+    t.integer "location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
