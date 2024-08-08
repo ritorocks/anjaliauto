@@ -2,7 +2,7 @@ class VehiclesController < ApplicationController
   def index
     matching_vehicles = Vehicle.all
 
-    @list_of_vehicles = matching_vehicles.order({ :created_at => :desc })
+    @list_of_vehicles = matching_vehicles.order({ :created_at => :asc })
 
     render({ :template => "vehicles/index" })
   end
