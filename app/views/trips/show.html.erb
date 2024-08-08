@@ -30,28 +30,28 @@
         Start date
       </dt>
       <dd>
-        <%= @the_trip.start_date %>
+        <%= @the_trip.start_date.strftime("%D") %>
       </dd>
 
       <dt>
         Start time
       </dt>
       <dd>
-        <%= @the_trip.start_time %>
+        <%= @the_trip.start_time.strftime("%r") %>
       </dd>
 
       <dt>
         End date
       </dt>
       <dd>
-        <%= @the_trip.end_date %>
+        <%= @the_trip.end_date.strftime("%D") %>
       </dd>
 
       <dt>
         End time
       </dt>
       <dd>
-        <%= @the_trip.end_time %>
+        <%= @the_trip.end_time.strftime("%r") %>
       </dd>
 
       <dt>

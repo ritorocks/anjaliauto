@@ -210,19 +210,19 @@
         </td>
 
         <td>
-          <%= a_trip.start_date %>
+          <%= a_trip.start_date.strftime("%D") %>
         </td>
 
         <td>
-          <%= a_trip.start_time %>
+          <%= a_trip.start_time.strftime("%r") %>
         </td>
 
         <td>
-          <%= a_trip.end_date %>
+          <%= a_trip.end_date.strftime("%D") %>
         </td>
 
         <td>
-          <%= a_trip.end_time %>
+          <%= a_trip.end_time.strftime("%r") %>
         </td>
 
         <td>
@@ -238,7 +238,7 @@
         </td>
 
         <td>
-          <%= a_trip.estimated_earnings %>
+          $<%= a_trip.estimated_earnings %>
         </td>
 
         <td>
