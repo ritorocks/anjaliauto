@@ -15,4 +15,6 @@
 #  updated_at  :datetime         not null
 #
 class Vehicle < ApplicationRecord
+  has_many  :trips, class_name: "Trip", foreign_key: "vehicle_id"
+  
 end

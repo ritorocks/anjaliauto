@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_08_185121) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_08_192918) do
   create_table "guests", force: :cascade do |t|
     t.string "name"
     t.string "turo_profile"
     t.integer "phone"
     t.integer "trips_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string "name"
+    t.boolean "status"
+    t.integer "vehicle_id"
+    t.integer "employee_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

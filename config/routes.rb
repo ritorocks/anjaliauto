@@ -1,5 +1,24 @@
 Rails.application.routes.draw do
 
+  # Routes for the Job resource:
+
+  # CREATE
+  post("/insert_job", { :controller => "jobs", :action => "create" })
+          
+  # READ
+  get("/jobs", { :controller => "jobs", :action => "index" })
+  
+  get("/jobs/:path_id", { :controller => "jobs", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_job/:path_id", { :controller => "jobs", :action => "update" })
+  
+  # DELETE
+  get("/delete_job/:path_id", { :controller => "jobs", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Trip resource:
 
   # CREATE
