@@ -1,0 +1,198 @@
+<div>
+  <div>
+    <h1>
+      List of all vehicles
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new vehicle
+    </h2>
+
+    <form action="/insert_vehicle" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="image_url_box">
+          Image url
+        </label>
+
+        <input type="text" id="image_url_box" name="query_image_url">
+      </div>
+
+      <div>
+        <label for="year_box">
+          Year
+        </label>
+
+        <input type="text" id="year_box" name="query_year">
+      </div>
+
+      <div>
+        <label for="make_box">
+          Make
+        </label>
+
+        <input type="text" id="make_box" name="query_make">
+      </div>
+
+      <div>
+        <label for="model_box">
+          Model
+        </label>
+
+        <input type="text" id="model_box" name="query_model">
+      </div>
+
+      <div>
+        <label for="color_box">
+          Color
+        </label>
+
+        <input type="text" id="color_box" name="query_color">
+      </div>
+
+      <div>
+        <label for="trips_count_box">
+          Trips count
+        </label>
+
+        <input type="text" id="trips_count_box" name="query_trips_count">
+      </div>
+
+      <div>
+        <label for="jobs_count_box">
+          Jobs count
+        </label>
+
+        <input type="text" id="jobs_count_box" name="query_jobs_count">
+      </div>
+
+      <button>
+        Create vehicle
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Image url
+        </th>
+
+        <th>
+          Year
+        </th>
+
+        <th>
+          Make
+        </th>
+
+        <th>
+          Model
+        </th>
+
+        <th>
+          Color
+        </th>
+
+        <th>
+          Trips count
+        </th>
+
+        <th>
+          Jobs count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_vehicles.each do |a_vehicle| %>
+      <tr>
+        <td>
+          <%= a_vehicle.id %>
+        </td>
+
+        <td>
+          <%= a_vehicle.name %>
+        </td>
+
+        <td>
+          <%= a_vehicle.image_url %>
+        </td>
+
+        <td>
+          <%= a_vehicle.year %>
+        </td>
+
+        <td>
+          <%= a_vehicle.make %>
+        </td>
+
+        <td>
+          <%= a_vehicle.model %>
+        </td>
+
+        <td>
+          <%= a_vehicle.color %>
+        </td>
+
+        <td>
+          <%= a_vehicle.trips_count %>
+        </td>
+
+        <td>
+          <%= a_vehicle.jobs_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_vehicle.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_vehicle.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/vehicles/<%= a_vehicle.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

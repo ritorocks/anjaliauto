@@ -1,0 +1,176 @@
+<div>
+  <div>
+    <h1>
+      Vehicle #<%= @the_vehicle.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/vehicles">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_vehicle/<%= @the_vehicle.id %>">
+          Delete vehicle
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_vehicle.name %>
+      </dd>
+
+      <dt>
+        Image url
+      </dt>
+      <dd>
+        <%= @the_vehicle.image_url %>
+      </dd>
+
+      <dt>
+        Year
+      </dt>
+      <dd>
+        <%= @the_vehicle.year %>
+      </dd>
+
+      <dt>
+        Make
+      </dt>
+      <dd>
+        <%= @the_vehicle.make %>
+      </dd>
+
+      <dt>
+        Model
+      </dt>
+      <dd>
+        <%= @the_vehicle.model %>
+      </dd>
+
+      <dt>
+        Color
+      </dt>
+      <dd>
+        <%= @the_vehicle.color %>
+      </dd>
+
+      <dt>
+        Trips count
+      </dt>
+      <dd>
+        <%= @the_vehicle.trips_count %>
+      </dd>
+
+      <dt>
+        Jobs count
+      </dt>
+      <dd>
+        <%= @the_vehicle.jobs_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_vehicle.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_vehicle.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit vehicle
+    </h2>
+
+    <form action="/modify_vehicle/<%= @the_vehicle.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_vehicle.name %>">
+      </div>
+
+      <div>
+        <label for="image_url_box">
+          Image url
+        </label>
+
+        <input type="text" id="image_url_box" name="query_image_url" value="<%= @the_vehicle.image_url %>">
+      </div>
+
+      <div>
+        <label for="year_box">
+          Year
+        </label>
+
+        <input type="text" id="year_box" name="query_year" value="<%= @the_vehicle.year %>">
+      </div>
+
+      <div>
+        <label for="make_box">
+          Make
+        </label>
+
+        <input type="text" id="make_box" name="query_make" value="<%= @the_vehicle.make %>">
+      </div>
+
+      <div>
+        <label for="model_box">
+          Model
+        </label>
+
+        <input type="text" id="model_box" name="query_model" value="<%= @the_vehicle.model %>">
+      </div>
+
+      <div>
+        <label for="color_box">
+          Color
+        </label>
+
+        <input type="text" id="color_box" name="query_color" value="<%= @the_vehicle.color %>">
+      </div>
+
+      <div>
+        <label for="trips_count_box">
+          Trips count
+        </label>
+
+        <input type="text" id="trips_count_box" name="query_trips_count" value="<%= @the_vehicle.trips_count %>">
+      </div>
+
+      <div>
+        <label for="jobs_count_box">
+          Jobs count
+        </label>
+
+        <input type="text" id="jobs_count_box" name="query_jobs_count" value="<%= @the_vehicle.jobs_count %>">
+      </div>
+
+      <button>
+        Update vehicle
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
