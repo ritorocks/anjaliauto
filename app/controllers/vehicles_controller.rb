@@ -19,7 +19,7 @@ class VehiclesController < ApplicationController
 
   def create
     the_vehicle = Vehicle.new
-    the_vehicle.name = params.fetch("query_name")
+    the_vehicle.name = params.fetch("query_make") + " " + params.fetch("query_model") + " " + params.fetch("query_year")
     the_vehicle.image_url = params.fetch("query_image_url")
     the_vehicle.year = params.fetch("query_year")
     the_vehicle.make = params.fetch("query_make")
