@@ -103,6 +103,14 @@
 
     <form action="/modify_vehicle/<%= @the_vehicle.id %>"  method="post" >
       <div>
+        <label for="vehilce_id">
+          ID
+        </label>
+
+        <input type="text" id="vehicle_id" name="query_vehicle_id" value="<%= @the_vehicle.id %>">
+      </div>
+      
+      <div>
         <label for="name_box">
           Name
         </label>

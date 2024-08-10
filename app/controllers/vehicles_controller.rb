@@ -40,6 +40,7 @@ class VehiclesController < ApplicationController
     the_id = params.fetch("path_id")
     the_vehicle = Vehicle.where({ :id => the_id }).at(0)
 
+    the_vehicle.id = params.fetch("query_vehicle_id")
     the_vehicle.name = params.fetch("query_name")
     the_vehicle.image_url = params.fetch("query_image_url")
     the_vehicle.year = params.fetch("query_year")
@@ -51,7 +52,7 @@ class VehiclesController < ApplicationController
 
     if the_vehicle.valid?
       the_vehicle.save
-      redirect_to("/vehicles/#{the_vehicle.id}", { :notice => "Vehicle updated successfully."} )
+      redirect_to("/vehicles/#{the_vehicle.id}", { :notice => "Vehicle updated successfully." })
     else
       redirect_to("/vehicles/#{the_vehicle.id}", { :alert => the_vehicle.errors.full_messages.to_sentence })
     end
@@ -63,6 +64,6 @@ class VehiclesController < ApplicationController
 
     the_vehicle.destroy
 
-    redirect_to("/vehicles", { :notice => "Vehicle deleted successfully."} )
+    redirect_to("/vehicles", { :notice => "Vehicle deleted successfully." })
   end
 end
