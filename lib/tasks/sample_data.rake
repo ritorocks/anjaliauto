@@ -46,3 +46,23 @@ namespace :db do
     puts "Successfully populated the guests table with sample data."
   end
 end
+
+namespace :db do
+  desc "Generate sample data for Employee model"
+  task sample_employees: :environment do
+    require "bcrypt"
+    require 'faker'
+
+    10.times do |i|
+      employee = Employee.new
+      employee.email = "employee#{i + 1}@example.com"
+      employee.encrypted_password = BCrypt::Password.create("password")
+      employee.image_url = "https://robohash.org/#{i + 1}?set=set5"
+      employee.name = Faker::Name.name
+      employee.title = "Title #{i + 1}"
+      employee.save
+    end
+
+    puts "Created 10 sample employees."
+  end
+end
