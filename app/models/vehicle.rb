@@ -4,7 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  color       :string
-#  image_url   :string
+#  image       :string
 #  jobs_count  :integer
 #  make        :string
 #  model       :string
