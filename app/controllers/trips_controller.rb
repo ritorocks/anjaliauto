@@ -18,18 +18,38 @@ class TripsController < ApplicationController
   end
 
   def create
+    require 'date'
+
     the_trip = Trip.new
+    
+    start_date = params.fetch("query_start_date")
+    end_date = params.fetch("query_end_date")
+    
     the_trip.turo_reservation_number = params.fetch("query_turo_reservation_number")
-    the_trip.start_date = params.fetch("query_start_date")
+    the_trip.start_date = start_date
     the_trip.start_time = params.fetch("query_start_time")
-    the_trip.end_date = params.fetch("query_end_date")
+    the_trip.end_date = end_date
     the_trip.end_time = params.fetch("query_end_time")
     the_trip.vehicle_id = params.fetch("query_vehicle_id")
     the_trip.guest_id = params.fetch("query_guest_id")
     the_trip.total_distance_included = params.fetch("query_total_distance_included")
     the_trip.estimated_earnings = params.fetch("query_estimated_earnings")
-    the_trip.start_day = params.fetch("query_start_day")
-    the_trip.end_day = params.fetch("query_end_day")
+    
+  # Calculate Start Day Automatically from user input  
+    # Parse the date string into a Date object
+    s_date = Date.strptime(start_date)
+    # Get the day of the week
+    start_day = s_date.strftime('%A').to_s
+    
+    the_trip.start_day = start_day
+    
+  # Calculate End Day Automatically from user input    
+    # Parse the date string into a Date object
+    e_date = Date.strptime(end_date)
+    # Get the day of the week
+    end_day = s_date.strftime('%A').to_s
+    the_trip.end_day = end_day
+    
     the_trip.extras = params.fetch("query_extras")
     the_trip.location_id = params.fetch("query_location_id")
 

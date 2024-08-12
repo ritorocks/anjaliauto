@@ -20,7 +20,7 @@
 #  vehicle_id              :integer
 #
 class Trip < ApplicationRecord
-  validates :id, presence: true
+  #validates :id, presence: true
   validates :id, uniqueness: true
   
   validates :start_date, presence: true
@@ -30,7 +30,7 @@ class Trip < ApplicationRecord
   validates :turo_reservation_number, presence: true
   validates :extras, presence: true
   validates :total_distance_included, presence: true
-  validates :location_id, presence: true
+  #validates :location_id, presence: true
   validates :vehicle_id, presence: true
 
   # Direct Associations
