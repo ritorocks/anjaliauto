@@ -15,6 +15,14 @@
 #  updated_at  :datetime         not null
 #
 class Vehicle < ApplicationRecord
+  validates :id, presence: true
+  validates :id, uniqueness: true
+
+  validates :make, presence: true
+  validates :model, presence: true
+  validates :year, presence: true
+  validates :color, presence: true
+
   # Direct associations
   has_many  :trips, class_name: "Trip", foreign_key: "vehicle_id"
   has_many  :jobs, class_name: "Job", foreign_key: "vehicle_id", dependent: :destroy
