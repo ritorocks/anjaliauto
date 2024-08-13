@@ -14,5 +14,5 @@ class Job < ApplicationRecord
   # Direct Associations
   #belongs_to :vehicle, required: true, class_name: "Vehicle", foreign_key: "vehicle_id", counter_cache: true
   belongs_to :employee, required: true, class_name: "Employee", foreign_key: "employee_id", counter_cache: :tasks_count
-  belongs_to :trip, required: true, class_name: "Trip", foreign_key: "trip_id", counter_cache: true
+  belongs_to :trip, required: true, class_name: "Trip", foreign_key: "trip_id", counter_cache: false
 end
