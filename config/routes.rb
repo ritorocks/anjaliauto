@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  root "vehicles#index"
+  root to: redirect("/employees/sign_in")
   # Routes for the Location resource:
 
   # CREATE
