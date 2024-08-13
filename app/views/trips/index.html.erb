@@ -100,7 +100,7 @@
     <table class="table table-hover table-bordered table-striped">
       <tr>
         <th>
-          Turo reservation number
+          Reservation ID
         </th>
 
         <th>
@@ -124,19 +124,11 @@
         </th>
 
         <th>
-          Guest
+          Guest Profile
         </th>
 
         <th>
-          Total distance included
-        </th>
-
-        <th>
-          Start day
-        </th>
-
-        <th>
-          End day
+          Distance included
         </th>
 
         <th>
@@ -178,23 +170,15 @@
         </td>
 
         <td>
-          <%= a_trip.vehicle.license_plate %>
+          <a href="/vehicles/<%=a_trip.vehicle_id%>"><%= a_trip.vehicle.license_plate %></a>
         </td>
 
         <td>
-          <%= a_trip.guest_id %>
+          <a href="<%= a_trip.guest.turo_profile %>"> Guest Link</a>
         </td>
 
         <td>
           <%= a_trip.total_distance_included %>
-        </td>
-
-        <td>
-          <%= a_trip.start_day %>
-        </td>
-
-        <td>
-          <%= a_trip.end_day %>
         </td>
 
         <td>
