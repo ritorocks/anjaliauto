@@ -56,11 +56,13 @@ namespace :db do
     10.times do |i|
       employee = Employee.new
       employee.email = "employee#{i + 1}@example.com"
-      employee.encrypted_password = BCrypt::Password.create("password")
+      employee.password = "password"
       employee.image_url = "https://robohash.org/#{i + 1}?set=set5"
       employee.name = Faker::Name.name
       employee.title = "Title #{i + 1}"
       employee.save
+
+      puts employee.errors.full_messages
     end
 
     puts "Created 10 sample employees."
