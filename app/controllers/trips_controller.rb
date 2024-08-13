@@ -33,7 +33,7 @@ class TripsController < ApplicationController
     the_trip.vehicle_id = params.fetch("query_vehicle_id")
     the_trip.guest_id = params.fetch("query_guest_id")
     the_trip.total_distance_included = params.fetch("query_total_distance_included")
-    the_trip.estimated_earnings = params.fetch("query_estimated_earnings")
+    #the_trip.estimated_earnings = params.fetch("query_estimated_earnings")
     
   # Calculate Start Day Automatically from user input  
     # Parse the date string into a Date object
@@ -51,7 +51,7 @@ class TripsController < ApplicationController
     the_trip.end_day = end_day
     
     the_trip.extras = params.fetch("query_extras")
-    the_trip.location_id = params.fetch("query_location_id")
+    #the_trip.location_id = params.fetch("query_location_id")
 
     if the_trip.valid?
       the_trip.save

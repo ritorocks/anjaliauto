@@ -19,8 +19,8 @@ class Vehicle < ApplicationRecord
   validates :id, presence: true
   validates :id, uniqueness: true
 
-  validates :license_plate, presence: true
-  validates :license_plate, uniqueness: true
+ # validates :license_plate, presence: true
+ # validates :license_plate, uniqueness: true
 
   validates :make, presence: true
   validates :model, presence: true

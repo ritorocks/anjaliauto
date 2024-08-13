@@ -10,5 +10,5 @@
 #
 class Location < ApplicationRecord
   # Direct Association
-  has_many  :trips, class_name: "Trip", foreign_key: "location_id", dependent: :nullify
+  #has_many  :trips, class_name: "Trip", foreign_key: "location_id", dependent: :nullify
 end

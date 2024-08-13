@@ -57,7 +57,7 @@
 
       <div>
         <label for="vehicle_id_box">
-          Vehicle
+          Vehicle ID
         </label>
 
         <input type="text" id="vehicle_id_box" name="query_vehicle_id">
@@ -65,7 +65,7 @@
 
       <div>
         <label for="guest_id_box">
-          Guest
+          Guest ID
         </label>
 
         <input type="text" id="guest_id_box" name="query_guest_id">
@@ -80,27 +80,11 @@
       </div>
 
       <div>
-        <label for="estimated_earnings_box">
-          Estimated earnings
-        </label>
-
-        <input type="text" id="estimated_earnings_box" name="query_estimated_earnings">
-      </div>
-
-      <div>
         <label for="extras_box">
           Extras
         </label>
 
         <input type="text" id="extras_box" name="query_extras">
-      </div>
-
-      <div>
-        <label for="location_id_box">
-          Location
-        </label>
-
-        <input type="text" id="location_id_box" name="query_location_id">
       </div>
 
       <button>
@@ -115,10 +99,6 @@
   <div>
     <table class="table table-hover table-bordered table-striped">
       <tr>
-        <th>
-          ID
-        </th>
-
         <th>
           Turo reservation number
         </th>
@@ -152,10 +132,6 @@
         </th>
 
         <th>
-          Estimated earnings
-        </th>
-
-        <th>
           Start day
         </th>
 
@@ -165,10 +141,6 @@
 
         <th>
           Extras
-        </th>
-
-        <th>
-          Location
         </th>
 
         <th>
@@ -185,10 +157,6 @@
 
       <% @list_of_trips.each do |a_trip| %>
       <tr>
-        <td>
-          <%= a_trip.id %>
-        </td>
-
         <td>
           <%= a_trip.turo_reservation_number %>
         </td>
@@ -210,7 +178,7 @@
         </td>
 
         <td>
-          <%= a_trip.vehicle.name %>
+          <%= a_trip.vehicle.license_plate %>
         </td>
 
         <td>
@@ -219,10 +187,6 @@
 
         <td>
           <%= a_trip.total_distance_included %>
-        </td>
-
-        <td>
-          $<%= a_trip.estimated_earnings %>
         </td>
 
         <td>
@@ -235,10 +199,6 @@
 
         <td>
           <%= a_trip.extras %>
-        </td>
-
-        <td>
-          <%= a_trip.location_id %>
         </td>
 
         <td>
