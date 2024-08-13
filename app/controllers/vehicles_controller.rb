@@ -22,6 +22,7 @@ class VehiclesController < ApplicationController
 
     the_vehicle.id = params.fetch("query_vehicle_id")
     the_vehicle.name = params.fetch("query_make") + " " + params.fetch("query_model") + " " + params.fetch("query_year")
+    the_vehicle.license_plate = params.fetch("query_license_plate")
     the_vehicle.image = params.fetch("query_image_url")
     the_vehicle.year = params.fetch("query_year")
     the_vehicle.make = params.fetch("query_make")
