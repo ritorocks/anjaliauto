@@ -1,0 +1,77 @@
+<div>
+  <div>
+    <h1>
+      All employees
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <table class="table table-hover table-bordered table-striped">
+      <tr>
+        <th>
+          Name
+        </th>
+
+        <th>
+          Image
+        </th>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Email
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_employees.each do |a_employee| %>
+      <tr>
+        <td>
+          <%= a_employee.name %>
+        </td>
+
+        <td>
+          <img src="<%= a_employee.image_url %>" style="width:250px;">
+        </td>
+
+        <td>
+          <%= a_employee.title %>
+        </td>
+
+        <td>
+          <%= a_employee.email %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_employee.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_employee.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/employees/<%= a_employee.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

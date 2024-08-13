@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
   
   root to: redirect("/employees/sign_in")
+  
+  # Routes for the Employee resource:
+  
+  # READ
+  get("/employees", { :controller => "employees", :action => "index" })
+  
+  #get("/employees/:path_id", { :controller => "employees", :action => "show" })
+  
+  # Routes for the Job resource:
+  
+  get("/jobs", { :controller => "jobs", :action => "index" })
+
   # Routes for the Location resource:
 
   # CREATE
