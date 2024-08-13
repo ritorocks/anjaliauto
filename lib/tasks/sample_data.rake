@@ -1,29 +1,30 @@
-#namespace :db do
- # desc "Generate sample data for vehicles"
-  #task :create_sample_vehicles => :environment do
-  #  require "faker"
+namespace :db do
+  desc "Generate sample data for vehicles"
+  task :sample_vehicles => :environment do
+    require "faker"
 
-   # 10.times do
-    #   vehicle = Vehicle.new
-    #   vehicle.color = Faker::Vehicle.color
-   #    vehicle.image_url = Faker::Internet.url
-   #    vehicle.jobs_count = rand(1..10)
-   #    vehicle.make = Faker::Vehicle.make
-   #    vehicle.model = Faker::Vehicle.model
-   #    vehicle.name = Faker::Vehicle.manufacture
-   #    vehicle.trips_count = rand(1..10)
-   #    vehicle.year = Faker::Vehicle.year
-   #    vehicle.save
-  #   end
+    10.times do
+      vehicle = Vehicle.new
+      vehicle.license_plate = Faker::Vehicle.license_plate
+      #   vehicle.color = Faker::Vehicle.color
+      #    vehicle.image_url = Faker::Internet.url
+      #    vehicle.jobs_count = rand(1..10)
+      #    vehicle.make = Faker::Vehicle.make
+      #    vehicle.model = Faker::Vehicle.model
+      #    vehicle.name = Faker::Vehicle.manufacture
+      #    vehicle.trips_count = rand(1..10)
+      #    vehicle.year = Faker::Vehicle.year
+      vehicle.save
+    end
 
-   #  puts "Sample vehicles data created successfully."
-  # end
-#end
+    puts "Sample vehicles data created successfully."
+  end
+end
 
 namespace :db do
   desc "Populate the database with sample data for guests"
   task sample_guests: :environment do
-    require 'faker'
+    require "faker"
 
     # Clear existing data
     Guest.delete_all
@@ -51,7 +52,7 @@ namespace :db do
   desc "Generate sample data for Employee model"
   task sample_employees: :environment do
     require "bcrypt"
-    require 'faker'
+    require "faker"
 
     10.times do |i|
       employee = Employee.new
