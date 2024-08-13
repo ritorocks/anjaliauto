@@ -9,10 +9,7 @@ Rails.application.routes.draw do
   
   #get("/employees/:path_id", { :controller => "employees", :action => "show" })
   
-  # Routes for the Job resource:
   
-  get("/jobs", { :controller => "jobs", :action => "index" })
-
   # Routes for the Location resource:
 
   # CREATE

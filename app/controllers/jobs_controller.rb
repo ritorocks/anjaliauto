@@ -20,8 +20,7 @@ class JobsController < ApplicationController
   def create
     the_job = Job.new
     the_job.name = params.fetch("query_name")
-    the_job.status = params.fetch("query_status", false)
-    the_job.vehicle_id = params.fetch("query_vehicle_id")
+    the_job.trip_id = params.fetch("query_trip_id")
     the_job.employee_id = params.fetch("query_employee_id")
 
     if the_job.valid?
