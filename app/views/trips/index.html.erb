@@ -110,7 +110,6 @@
         <th>Guest Profile</th>
         <th>Distance included</th>
         <th>Extras</th>
-        <th>Created at</th>
         <th>Updated at</th>
         <th></th>
       </tr>
@@ -130,7 +129,6 @@
           </td>
           <td><%= a_trip.total_distance_included %></td>
           <td><%= a_trip.extras %></td>
-          <td><%= time_ago_in_words(a_trip.created_at) %> ago</td>
           <td><%= time_ago_in_words(a_trip.updated_at) %> ago</td>
           <td>
             <a href="/trips/<%= a_trip.id %>">Show details</a>
@@ -154,7 +152,6 @@
         <th>Guest Profile</th>
         <th>Distance included</th>
         <th>Extras</th>
-        <th>Created at</th>
         <th>Updated at</th>
         <th></th>
       </tr>
@@ -174,7 +171,6 @@
           </td>
           <td><%= a_trip.total_distance_included %></td>
           <td><%= a_trip.extras %></td>
-          <td><%= time_ago_in_words(a_trip.created_at) %> ago</td>
           <td><%= time_ago_in_words(a_trip.updated_at) %> ago</td>
           <td>
             <a href="/trips/<%= a_trip.id %>">Show details</a>

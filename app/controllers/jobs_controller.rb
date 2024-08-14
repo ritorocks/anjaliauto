@@ -1,9 +1,11 @@
 class JobsController < ApplicationController
   def index
-    matching_jobs = Job.all
-
+   # if current_employee.email == "admin@example.com"
+      matching_jobs = Job.all
+   # else
+     # matching_jobs = current_employee.tasks
+   # end
     @list_of_jobs = matching_jobs.order({ :created_at => :desc })
-
     render({ :template => "jobs/index" })
   end
 
@@ -42,7 +44,7 @@ class JobsController < ApplicationController
 
     if the_job.valid?
       the_job.save
-      redirect_to("/jobs/#{the_job.id}", { :notice => "Job updated successfully."} )
+      redirect_to("/jobs/#{the_job.id}", { :notice => "Job updated successfully." })
     else
       redirect_to("/jobs/#{the_job.id}", { :alert => the_job.errors.full_messages.to_sentence })
     end
@@ -54,6 +56,6 @@ class JobsController < ApplicationController
 
     the_job.destroy
 
-    redirect_to("/jobs", { :notice => "Job deleted successfully."} )
+    redirect_to("/jobs", { :notice => "Job deleted successfully." })
   end
 end

@@ -3,8 +3,10 @@
 # Table name: jobs
 #
 #  id          :integer          not null, primary key
+#  completed   :boolean
+#  due_date    :date
+#  due_time    :time
 #  name        :string
-#  status      :boolean
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  employee_id :integer
