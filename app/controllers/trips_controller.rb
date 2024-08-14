@@ -59,11 +59,7 @@ class TripsController < ApplicationController
     if the_trip.valid?
       the_trip.save
       redirect_to("/trips", { :notice => "Trip created successfully." })
-     # Automatically create 
-      the_job = Job.new
-      the_job.name = params.fetch("query_name")
-      the_job.trip_id = the_trip.id
-      the_job.employee_id = params.fetch("query_employee_id")
+      the_trip.create_jobs #Automatically create jobs associated with each trip. Calling method defined in the trip model
     else
       redirect_to("/trips", { :alert => the_trip.errors.full_messages.to_sentence })
     end
