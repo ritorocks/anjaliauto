@@ -94,8 +94,10 @@
   </div>
 </div>
 <div>
+
+  <hr>
   <!-- Future Trips Table -->
-  <h2>Future Trips</h2>
+  <h2>Upcoming Trips (<%= @future_trips.count.to_s%>)</h2>
   <div>
     <table class="table table-hover table-bordered table-striped">
       <tr>
@@ -114,32 +116,32 @@
       </tr>
 
       <% @future_trips.each do |a_trip| %>
-      <tr>
-        <td><%= a_trip.turo_reservation_number %></td>
-        <td><%= a_trip.start_date.strftime("%D") %></td>
-        <td><%= a_trip.start_time.strftime("%r") %></td>
-        <td><%= a_trip.end_date.strftime("%D") %></td>
-        <td><%= a_trip.end_time.strftime("%r") %></td>
-        <td>
-          <a href="/vehicles/<%= a_trip.vehicle_id %>"><%= a_trip.vehicle.license_plate %></a>
-        </td>
-        <td>
-          <a href="<%= a_trip.guest.turo_profile %>">Guest Link</a>
-        </td>
-        <td><%= a_trip.total_distance_included %></td>
-        <td><%= a_trip.extras %></td>
-        <td><%= time_ago_in_words(a_trip.created_at) %> ago</td>
-        <td><%= time_ago_in_words(a_trip.updated_at) %> ago</td>
-        <td>
-          <a href="/trips/<%= a_trip.id %>">Show details</a>
-        </td>
-      </tr>
+        <tr>
+          <td><%= a_trip.turo_reservation_number %></td>
+          <td><%= a_trip.start_date.strftime("%D") %></td>
+          <td><%= a_trip.start_time.strftime("%r") %></td>
+          <td><%= a_trip.end_date.strftime("%D") %></td>
+          <td><%= a_trip.end_time.strftime("%r") %></td>
+          <td>
+            <a href="/vehicles/<%= a_trip.vehicle_id %>"><%= a_trip.vehicle.license_plate %></a>
+          </td>
+          <td>
+            <a href="<%= a_trip.guest.turo_profile %>">Guest Link</a>
+          </td>
+          <td><%= a_trip.total_distance_included %></td>
+          <td><%= a_trip.extras %></td>
+          <td><%= time_ago_in_words(a_trip.created_at) %> ago</td>
+          <td><%= time_ago_in_words(a_trip.updated_at) %> ago</td>
+          <td>
+            <a href="/trips/<%= a_trip.id %>">Show details</a>
+          </td>
+        </tr>
       <% end %>
     </table>
   </div>
 
   <!-- Past Trips Table -->
-  <h2>Past Trips</h2>
+  <h2>Past Trips (<%= @past_trips.count.to_s%>)</h2>
   <div>
     <table class="table table-hover table-bordered table-striped">
       <tr>
@@ -158,26 +160,26 @@
       </tr>
 
       <% @past_trips.each do |a_trip| %>
-      <tr>
-        <td><%= a_trip.turo_reservation_number %></td>
-        <td><%= a_trip.start_date.strftime("%D") %></td>
-        <td><%= a_trip.start_time.strftime("%r") %></td>
-        <td><%= a_trip.end_date.strftime("%D") %></td>
-        <td><%= a_trip.end_time.strftime("%r") %></td>
-        <td>
-          <a href="/vehicles/<%= a_trip.vehicle_id %>"><%= a_trip.vehicle.license_plate %></a>
-        </td>
-        <td>
-          <a href="<%= a_trip.guest.turo_profile %>">Guest Link</a>
-        </td>
-        <td><%= a_trip.total_distance_included %></td>
-        <td><%= a_trip.extras %></td>
-        <td><%= time_ago_in_words(a_trip.created_at) %> ago</td>
-        <td><%= time_ago_in_words(a_trip.updated_at) %> ago</td>
-        <td>
-          <a href="/trips/<%= a_trip.id %>">Show details</a>
-        </td>
-      </tr>
+        <tr>
+          <td><%= a_trip.turo_reservation_number %></td>
+          <td><%= a_trip.start_date.strftime("%D") %></td>
+          <td><%= a_trip.start_time.strftime("%r") %></td>
+          <td><%= a_trip.end_date.strftime("%D") %></td>
+          <td><%= a_trip.end_time.strftime("%r") %></td>
+          <td>
+            <a href="/vehicles/<%= a_trip.vehicle_id %>"><%= a_trip.vehicle.license_plate %></a>
+          </td>
+          <td>
+            <a href="<%= a_trip.guest.turo_profile %>">Guest Link</a>
+          </td>
+          <td><%= a_trip.total_distance_included %></td>
+          <td><%= a_trip.extras %></td>
+          <td><%= time_ago_in_words(a_trip.created_at) %> ago</td>
+          <td><%= time_ago_in_words(a_trip.updated_at) %> ago</td>
+          <td>
+            <a href="/trips/<%= a_trip.id %>">Show details</a>
+          </td>
+        </tr>
       <% end %>
     </table>
   </div>
