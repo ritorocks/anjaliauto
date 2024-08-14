@@ -4,6 +4,9 @@ class TripsController < ApplicationController
 
     @list_of_trips = matching_trips.order({ :created_at => :desc })
 
+    @past_trips = Trip.where("start_date < ?", Date.today).order(:start_date)
+    @future_trips = Trip.where("start_date >= ?", Date.today).order(:start_date)
+
     render({ :template => "trips/index" })
   end
 

@@ -93,109 +93,89 @@
     </form>
   </div>
 </div>
-
-<hr>
 <div>
+  <!-- Future Trips Table -->
+  <h2>Future Trips</h2>
   <div>
     <table class="table table-hover table-bordered table-striped">
       <tr>
-        <th>
-          Reservation ID
-        </th>
-
-        <th>
-          Start date
-        </th>
-
-        <th>
-          Start time
-        </th>
-
-        <th>
-          End date
-        </th>
-
-        <th>
-          End time
-        </th>
-
-        <th>
-          Vehicle
-        </th>
-
-        <th>
-          Guest Profile
-        </th>
-
-        <th>
-          Distance included
-        </th>
-
-        <th>
-          Extras
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
-        </th>
+        <th>Reservation ID</th>
+        <th>Start date</th>
+        <th>Start time</th>
+        <th>End date</th>
+        <th>End time</th>
+        <th>Vehicle</th>
+        <th>Guest Profile</th>
+        <th>Distance included</th>
+        <th>Extras</th>
+        <th>Created at</th>
+        <th>Updated at</th>
+        <th></th>
       </tr>
 
-      <% @list_of_trips.each do |a_trip| %>
+      <% @future_trips.each do |a_trip| %>
       <tr>
+        <td><%= a_trip.turo_reservation_number %></td>
+        <td><%= a_trip.start_date.strftime("%D") %></td>
+        <td><%= a_trip.start_time.strftime("%r") %></td>
+        <td><%= a_trip.end_date.strftime("%D") %></td>
+        <td><%= a_trip.end_time.strftime("%r") %></td>
         <td>
-          <%= a_trip.turo_reservation_number %>
+          <a href="/vehicles/<%= a_trip.vehicle_id %>"><%= a_trip.vehicle.license_plate %></a>
         </td>
+        <td>
+          <a href="<%= a_trip.guest.turo_profile %>">Guest Link</a>
+        </td>
+        <td><%= a_trip.total_distance_included %></td>
+        <td><%= a_trip.extras %></td>
+        <td><%= time_ago_in_words(a_trip.created_at) %> ago</td>
+        <td><%= time_ago_in_words(a_trip.updated_at) %> ago</td>
+        <td>
+          <a href="/trips/<%= a_trip.id %>">Show details</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
 
-        <td>
-          <%= a_trip.start_date.strftime("%D") %>
-        </td>
+  <!-- Past Trips Table -->
+  <h2>Past Trips</h2>
+  <div>
+    <table class="table table-hover table-bordered table-striped">
+      <tr>
+        <th>Reservation ID</th>
+        <th>Start date</th>
+        <th>Start time</th>
+        <th>End date</th>
+        <th>End time</th>
+        <th>Vehicle</th>
+        <th>Guest Profile</th>
+        <th>Distance included</th>
+        <th>Extras</th>
+        <th>Created at</th>
+        <th>Updated at</th>
+        <th></th>
+      </tr>
 
+      <% @past_trips.each do |a_trip| %>
+      <tr>
+        <td><%= a_trip.turo_reservation_number %></td>
+        <td><%= a_trip.start_date.strftime("%D") %></td>
+        <td><%= a_trip.start_time.strftime("%r") %></td>
+        <td><%= a_trip.end_date.strftime("%D") %></td>
+        <td><%= a_trip.end_time.strftime("%r") %></td>
         <td>
-          <%= a_trip.start_time.strftime("%r") %>
-        </td>
-
-        <td>
-          <%= a_trip.end_date.strftime("%D") %>
-        </td>
-
-        <td>
-          <%= a_trip.end_time.strftime("%r") %>
-        </td>
-
-        <td>
-          <a href="/vehicles/<%=a_trip.vehicle_id%>"><%= a_trip.vehicle.license_plate %></a>
-        </td>
-
-        <td>
-          <a href="<%= a_trip.guest.turo_profile %>"> Guest Link</a>
-        </td>
-
-        <td>
-          <%= a_trip.total_distance_included %>
-        </td>
-
-        <td>
-          <%= a_trip.extras %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_trip.created_at) %> ago
+          <a href="/vehicles/<%= a_trip.vehicle_id %>"><%= a_trip.vehicle.license_plate %></a>
         </td>
         <td>
-          <%= time_ago_in_words(a_trip.updated_at) %> ago
+          <a href="<%= a_trip.guest.turo_profile %>">Guest Link</a>
         </td>
-
+        <td><%= a_trip.total_distance_included %></td>
+        <td><%= a_trip.extras %></td>
+        <td><%= time_ago_in_words(a_trip.created_at) %> ago</td>
+        <td><%= time_ago_in_words(a_trip.updated_at) %> ago</td>
         <td>
-          <a href="/trips/<%= a_trip.id %>">
-            Show details
-          </a>
+          <a href="/trips/<%= a_trip.id %>">Show details</a>
         </td>
       </tr>
       <% end %>
