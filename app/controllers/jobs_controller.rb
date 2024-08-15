@@ -6,6 +6,10 @@ class JobsController < ApplicationController
      # matching_jobs = current_employee.tasks
    # end
     @list_of_jobs = matching_jobs.order({ :created_at => :desc })
+
+    @past_jobs = Job.where("due_date < ?", Date.today).order(:due_date)
+    @future_jobs = Job.where("due_date >= ?", Date.today).order(:due_date)
+
     render({ :template => "jobs/index" })
   end
 

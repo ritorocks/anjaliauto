@@ -47,6 +47,10 @@
 </div>
 
 <hr>
+
+  <!-- Future Jobs Table -->
+  <h3>Upcoming Jobs (<%= @future_jobs.count.to_s%>)</h3>
+
 <div>
   <div>
     <table class="table table-hover table-bordered table-striped">
@@ -79,11 +83,9 @@
           Updated at
         </th>
 
-        <th>
-        </th>
       </tr>
 
-      <% @list_of_jobs.each do |a_job| %>
+      <% @future_jobs.each do |a_job| %>
         <tr>
           <td>
             <%= a_job.id %>
@@ -102,7 +104,7 @@
           </td>
 
           <td>
-            <img src="<%= a_job.employee.image_url %>" width="100px">
+            <img src="<%= a_job.employee.image_url %>" width="50px">
           </td>
 
           <td>
@@ -111,7 +113,6 @@
           <td>
             <%= time_ago_in_words(a_job.updated_at) %> ago
           </td>
-
         </tr>
       <% end %>
     </table>
@@ -119,3 +120,73 @@
 </div>
 
 <hr>
+  <!-- Past Jobs Table -->
+  <h3>Past Jobs (<%= @past_jobs.count.to_s%>)</h3>
+
+<div>
+  <div>
+    <table class="table table-hover table-bordered table-striped">
+      <tr>
+
+        <th>
+          Job ID
+        </th>
+
+        <th>
+          Reservation #
+        </th>
+
+        <th>
+          Job Name
+        </th>
+
+        <th>
+          Employee
+        </th>
+
+         <th>
+          Employee Image
+        </th>
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+      </tr>
+
+      <% @past_jobs.each do |a_job| %>
+        <tr>
+          <td>
+            <%= a_job.id %>
+          </td>
+
+          <td>
+            <%= a_job.trip.turo_reservation_number %>
+          </td>
+
+          <td>
+            <%= a_job.name %>
+          </td>
+
+          <td>
+            <%= a_job.employee.name %>
+          </td>
+
+          <td>
+            <img src="<%= a_job.employee.image_url %>" width="50px">
+          </td>
+
+          <td>
+            <%= time_ago_in_words(a_job.created_at) %> ago
+          </td>
+          <td>
+            <%= time_ago_in_words(a_job.updated_at) %> ago
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
