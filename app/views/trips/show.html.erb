@@ -1,8 +1,8 @@
 <div>
   <div>
-    <h1>
+    <h2>
       Reservation #<%= @the_trip.turo_reservation_number %> details
-    </h1>
+    </h2>
 
     <div>
       <div>
@@ -18,208 +18,155 @@
       </div>
     </div>
 
-    <dl>
-      <dt>
-        Start date
-      </dt>
-      <dd>
-        <%= @the_trip.start_date.strftime("%D") %>
-      </dd>
+    <hr>
 
-      <dt>
-        Start time
-      </dt>
-      <dd>
-        <%= @the_trip.start_time.strftime("%r") %>
-      </dd>
-
-      <dt>
-        End date
-      </dt>
-      <dd>
-        <%= @the_trip.end_date.strftime("%D") %>
-      </dd>
-
-      <dt>
-        End time
-      </dt>
-      <dd>
-        <%= @the_trip.end_time.strftime("%r") %>
-      </dd>
-
-      <dt>
-        Vehicle
-      </dt>
-      <dd>
-        <%= @the_trip.vehicle.name %>
-      </dd>
-
-      <dt>
-        Vehicle Image
-      </dt>
-      <dd>
-        <img src="<%= @the_trip.vehicle.image %>" width="200px">
-      </dd>
-
-      <dt>
-        Guest
-      </dt>
-      <dd>
-        <%= @the_trip.guest.name %>
-      </dd>
-
-      <dt>
-        Total distance included
-      </dt>
-      <dd>
-        <%= @the_trip.total_distance_included %>
-      </dd>
-
-      <dt>
-        Start day
-      </dt>
-      <dd>
-        <%= @the_trip.start_day %>
-      </dd>
-
-      <dt>
-        End day
-      </dt>
-      <dd>
-        <%= @the_trip.end_day %>
-      </dd>
-
-      <dt>
-        Extras
-      </dt>
-      <dd>
-        <%= @the_trip.extras %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_trip.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_trip.updated_at) %> ago
-      </dd>
-    </dl>
+   <div class="container mt-5">
+    <h3 class="mb-4">Trip Details</h3>
+    <div class="row">
+      <div class="col-md-6">
+        <dl>
+          <dt>Start date</dt>
+          <dd><%= @the_trip.start_date.strftime("%D") %></dd>
+        </dl>
+      </div>
+      <div class="col-md-6">
+        <dl>
+          <dt>Start time</dt>
+          <dd><%= @the_trip.start_time.strftime("%r") %></dd>
+        </dl>
+      </div>
+      <div class="col-md-6">
+        <dl>
+          <dt>End date</dt>
+          <dd><%= @the_trip.end_date.strftime("%D") %></dd>
+        </dl>
+      </div>
+      <div class="col-md-6">
+        <dl>
+          <dt>End time</dt>
+          <dd><%= @the_trip.end_time.strftime("%r") %></dd>
+        </dl>
+      </div>
+      <div class="col-md-6">
+        <dl>
+          <dt>Vehicle</dt>
+          <dd><%= @the_trip.vehicle.name %></dd>
+        </dl>
+      </div>
+      <div class="col-md-6">
+        <dl>
+          <dt>Vehicle Image</dt>
+          <dd><img src="<%= @the_trip.vehicle.image %>" width="200px"></dd>
+        </dl>
+      </div>
+      <div class="col-md-6">
+        <dl>
+          <dt>Guest</dt>
+          <dd><%= @the_trip.guest.name %></dd>
+        </dl>
+      </div>
+      <div class="col-md-6">
+        <dl>
+          <dt>Total distance included</dt>
+          <dd><%= @the_trip.total_distance_included %></dd>
+        </dl>
+      </div>
+      <div class="col-md-6">
+        <dl>
+          <dt>Start day</dt>
+          <dd><%= @the_trip.start_day %></dd>
+        </dl>
+      </div>
+      <div class="col-md-6">
+        <dl>
+          <dt>End day</dt>
+          <dd><%= @the_trip.end_day %></dd>
+        </dl>
+      </div>
+      <div class="col-md-6">
+        <dl>
+          <dt>Extras</dt>
+          <dd><%= @the_trip.extras %></dd>
+        </dl>
+      </div>
+      <div class="col-md-6">
+        <dl>
+          <dt>Created at</dt>
+          <dd><%= time_ago_in_words(@the_trip.created_at) %> ago</dd>
+        </dl>
+      </div>
+      <div class="col-md-6">
+        <dl>
+          <dt>Updated at</dt>
+          <dd><%= time_ago_in_words(@the_trip.updated_at) %> ago</dd>
+        </dl>
+      </div>
+    </div>
   </div>
-</div>
-
 <hr>
 
-<div>
-  <div>
-    <h2>
-      Edit trip
-    </h2>
-
-    <form action="/modify_trip/<%= @the_trip.id %>"  method="post" >
-      <div>
-        <label for="turo_reservation_number_box">
-          Turo reservation number
-        </label>
-
-        <input type="text" id="turo_reservation_number_box" name="query_turo_reservation_number" value="<%= @the_trip.turo_reservation_number %>">
+<div class="container mt-5">
+    <h3 class="mb-4">Edit trip</h3>
+    <form action="/modify_trip/<%= @the_trip.id %>" method="post">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="turo_reservation_number_box">Turo reservation number</label>
+          <input type="text" class="form-control" id="turo_reservation_number_box" name="query_turo_reservation_number" value="<%= @the_trip.turo_reservation_number %>">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="start_date_box">Start date</label>
+          <input type="date" class="form-control" id="start_date_box" name="query_start_date" value="<%= @the_trip.start_date %>">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="start_time_box">Start time</label>
+          <input type="time" class="form-control" id="start_time_box" name="query_start_time" value="<%= @the_trip.start_time %>">
+        </div>
       </div>
-
-      <div>
-        <label for="start_date_box">
-          Start date
-        </label>
-
-        <input type="date" id="start_date_box" name="query_start_date" value="<%= @the_trip.start_date %>">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="end_date_box">End date</label>
+          <input type="date" class="form-control" id="end_date_box" name="query_end_date" value="<%= @the_trip.end_date %>">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="end_time_box">End time</label>
+          <input type="time" class="form-control" id="end_time_box" name="query_end_time" value="<%= @the_trip.end_time %>">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="vehicle_id_box">Vehicle</label>
+          <input type="text" class="form-control" id="vehicle_id_box" name="query_vehicle_id" value="<%= @the_trip.vehicle_id %>">
+        </div>
       </div>
-
-      <div>
-        <label for="start_time_box">
-          Start time
-        </label>
-
-        <input type="time" id="start_time_box" name="query_start_time" value="<%= @the_trip.start_time %>">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="guest_id_box">Guest</label>
+          <input type="text" class="form-control" id="guest_id_box" name="query_guest_id" value="<%= @the_trip.guest_id %>">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="total_distance_included_box">Total distance included</label>
+          <input type="text" class="form-control" id="total_distance_included_box" name="query_total_distance_included" value="<%= @the_trip.total_distance_included %>">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="start_day_box">Start day</label>
+          <input type="text" class="form-control" id="start_day_box" name="query_start_day" value="<%= @the_trip.start_day %>">
+        </div>
       </div>
-
-      <div>
-        <label for="end_date_box">
-          End date
-        </label>
-
-        <input type="date" id="end_date_box" name="query_end_date" value="<%= @the_trip.end_date %>">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="end_day_box">End day</label>
+          <input type="text" class="form-control" id="end_day_box" name="query_end_day" value="<%= @the_trip.end_day %>">
+        </div>
+        <div class="form-group col-md-8">
+          <label for="extras_box">Extras</label>
+          <input type="text" class="form-control" id="extras_box" name="query_extras" value="<%= @the_trip.extras %>">
+        </div>
       </div>
-
-      <div>
-        <label for="end_time_box">
-          End time
-        </label>
-
-        <input type="time" id="end_time_box" name="query_end_time" value="<%= @the_trip.end_time %>">
-      </div>
-
-      <div>
-        <label for="vehicle_id_box">
-          Vehicle
-        </label>
-
-        <input type="text" id="vehicle_id_box" name="query_vehicle_id" value="<%= @the_trip.vehicle_id %>">
-      </div>
-
-      <div>
-        <label for="guest_id_box">
-          Guest
-        </label>
-
-        <input type="text" id="guest_id_box" name="query_guest_id" value="<%= @the_trip.guest_id %>">
-      </div>
-
-      <div>
-        <label for="total_distance_included_box">
-          Total distance included
-        </label>
-
-        <input type="text" id="total_distance_included_box" name="query_total_distance_included" value="<%= @the_trip.total_distance_included %>">
-      </div>
-
-      <div>
-        <label for="start_day_box">
-          Start day
-        </label>
-
-        <input type="text" id="start_day_box" name="query_start_day" value="<%= @the_trip.start_day %>">
-      </div>
-
-      <div>
-        <label for="end_day_box">
-          End day
-        </label>
-
-        <input type="text" id="end_day_box" name="query_end_day" value="<%= @the_trip.end_day %>">
-      </div>
-
-      <div>
-        <label for="extras_box">
-          Extras
-        </label>
-
-        <input type="text" id="extras_box" name="query_extras" value="<%= @the_trip.extras %>">
-      </div>
-
-      <button>
-        Update trip
-      </button>
+      <button type="submit" class="btn btn-primary">Update trip</button>
     </form>
   </div>
-</div>
 
 <hr>
 
-<h2>Related Jobs</h2>
+<h3>Related Jobs</h3>
 
 <table class="table table-hover table-bordered table-striped">
   <tr>
