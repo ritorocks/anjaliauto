@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Trip #<%= @the_trip.id %> details
+      Reservation #<%= @the_trip.turo_reservation_number %> details
     </h1>
 
     <div>
@@ -19,13 +19,6 @@
     </div>
 
     <dl>
-      <dt>
-        Turo reservation number
-      </dt>
-      <dd>
-        <%= @the_trip.turo_reservation_number %>
-      </dd>
-
       <dt>
         Start date
       </dt>
@@ -58,14 +51,21 @@
         Vehicle
       </dt>
       <dd>
-        <%= @the_trip.vehicle_id %>
+        <%= @the_trip.vehicle.name %>
+      </dd>
+
+      <dt>
+        Vehicle Image
+      </dt>
+      <dd>
+        <img src="<%= @the_trip.vehicle.image %>" width="200px">
       </dd>
 
       <dt>
         Guest
       </dt>
       <dd>
-        <%= @the_trip.guest_id %>
+        <%= @the_trip.guest.name %>
       </dd>
 
       <dt>
@@ -73,13 +73,6 @@
       </dt>
       <dd>
         <%= @the_trip.total_distance_included %>
-      </dd>
-
-      <dt>
-        Estimated earnings
-      </dt>
-      <dd>
-        <%= @the_trip.estimated_earnings %>
       </dd>
 
       <dt>
@@ -104,13 +97,6 @@
       </dd>
 
       <dt>
-        Location
-      </dt>
-      <dd>
-        <%= @the_trip.location_id %>
-      </dd>
-
-      <dt>
         Created at
       </dt>
       <dd>
@@ -128,7 +114,6 @@
 </div>
 
 <hr>
-
 
 <div>
   <div>
@@ -202,14 +187,6 @@
       </div>
 
       <div>
-        <label for="estimated_earnings_box">
-          Estimated earnings
-        </label>
-
-        <input type="text" id="estimated_earnings_box" name="query_estimated_earnings" value="<%= @the_trip.estimated_earnings %>">
-      </div>
-
-      <div>
         <label for="start_day_box">
           Start day
         </label>
@@ -233,14 +210,6 @@
         <input type="text" id="extras_box" name="query_extras" value="<%= @the_trip.extras %>">
       </div>
 
-      <div>
-        <label for="location_id_box">
-          Location
-        </label>
-
-        <input type="text" id="location_id_box" name="query_location_id" value="<%= @the_trip.location_id %>">
-      </div>
-
       <button>
         Update trip
       </button>
@@ -249,3 +218,59 @@
 </div>
 
 <hr>
+
+<h2>Related Jobs</h2>
+
+<table border="1">
+  <tr>
+    <th>
+      Job ID
+    </th>
+
+    <th>
+      Job Name
+    </th>
+
+    <th>
+      Assigned to 
+    </th>
+
+    <th>
+      Employee Img
+    </th>
+
+    <th>
+      Job Status
+    </th>
+  </tr>
+
+  <% @the_trip.jobs.each do |a_job| %>
+    <tr>
+      <td>
+        <%= a_job.id %>
+      </td>
+
+      <td>
+        <%= a_job.name %>
+      </td>
+
+      <td>
+        <%= a_job.employee.name %>
+      </td>
+
+      <td>
+        <%= a_job.employee.image_url %>
+      </td>
+
+      <td>
+        <%= a_job.completed %>
+      </td>
+
+      <td>
+        <a href="/jobs/<%= a_job.id %>">
+          Show details
+        </a>
+      </td>
+    </tr>
+  <% end %>
+</table>

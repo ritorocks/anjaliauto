@@ -28,4 +28,8 @@ class Employee < ApplicationRecord
 
   # Direct Associations
   has_many  :tasks, class_name: "Job", foreign_key: "employee_id", dependent: :nullify
+
+  # Indirect Associations
+  has_many :trips, through: :tasks, source: :trip
+
 end

@@ -37,6 +37,9 @@ class Trip < ApplicationRecord
   belongs_to :vehicle, required: true, class_name: "Vehicle", foreign_key: "vehicle_id", counter_cache: true
   belongs_to :guest, required: true, class_name: "Guest", foreign_key: "guest_id", counter_cache: true
   #belongs_to :location, required: true, class_name: "Location", foreign_key: "location_id", counter_cache: true
+  has_many  :jobs, class_name: "Job", foreign_key: "trip_id", dependent: :destroy
+  # Indirect Associations
+  has_many :employees, through: :jobs, source: :employee
 
   def create_jobs
     jobs_data = if self.extras == "None"
