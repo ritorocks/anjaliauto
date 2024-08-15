@@ -57,7 +57,7 @@
         </th>
 
         <th>
-          Trip ID
+          Reservation #
         </th>
 
         <th>
@@ -65,9 +65,12 @@
         </th>
 
         <th>
-          Employee ID
+          Employee
         </th>
 
+         <th>
+          Employee Image
+        </th>
         <th>
           Created at
         </th>
@@ -87,7 +90,7 @@
           </td>
 
           <td>
-            <%= a_job.trip.id %>
+            <%= a_job.trip.turo_reservation_number %>
           </td>
 
           <td>
@@ -96,6 +99,10 @@
 
           <td>
             <%= a_job.employee.name %>
+          </td>
+
+          <td>
+            <img src="<%= a_job.employee.image_url %>" width="100px">
           </td>
 
           <td>
