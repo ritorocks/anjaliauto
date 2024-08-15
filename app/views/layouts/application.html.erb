@@ -49,12 +49,21 @@
               <a class="nav-link" href="/jobs">Jobs</a>
             </li>
           </ul>
+          
+          <ul class="nav justify-content-right">
+            <li class="nav-item">
+              <a class="nav-link" href="/jobs">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/jobs">Sign Out</a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <p style="color: green" class="notice"><%= notice %></p>
+    <p style="color: red" class="alert"><%= alert %></p>
 
     <div class="container">
       <%= yield %>
