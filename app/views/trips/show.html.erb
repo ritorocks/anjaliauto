@@ -186,9 +186,6 @@
       Employee Img
     </th>
 
-    <th>
-      Job Status
-    </th>
   </tr>
 
   <% @the_trip.jobs.each do |a_job| %>
@@ -207,16 +204,6 @@
 
       <td>
         <img src="<%= a_job.employee.image_url %>" width="75px">
-      </td>
-
-      <td>
-        <%= a_job.completed %>
-      </td>
-
-      <td>
-        <a href="/jobs/<%= a_job.id %>">
-          Show details
-        </a>
       </td>
     </tr>
   <% end %>

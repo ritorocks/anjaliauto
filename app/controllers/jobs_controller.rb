@@ -1,10 +1,10 @@
 class JobsController < ApplicationController
   def index
-   if current_employee.email == "admin@example.com"
+   #if current_employee.email == "admin@example.com"
       matching_jobs = Job.all
-   else
-      matching_jobs = current_employee.tasks
-   end
+   #else
+      #matching_jobs = current_employee.tasks
+   #end
     @list_of_jobs = matching_jobs.order({ :created_at => :desc })
 
     @past_jobs = Job.where("due_date < ?", Date.today).order(:due_date)

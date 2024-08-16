@@ -1,176 +1,156 @@
-<div>
-  <div>
-    <h1>
-      Vehicle #<%= @the_vehicle.id %> details
-    </h1>
-
-    <div>
-      <div>
-        <a href="/vehicles">
-          Go back
-        </a>
+<div class="container mt-5">
+  <h1 class="mb-4">Vehicle #<%= @the_vehicle.id %> details</h1>
+  <div class="mb-4">
+    <a href="/vehicles" class="btn btn-secondary">Go back</a>
+    <a href="/delete_vehicle/<%= @the_vehicle.id %>" class="btn btn-danger">Delete vehicle</a>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <dl>
+        <dt>Name</dt>
+        <dd><%= @the_vehicle.name %></dd>
+      </dl>
+    </div>
+    <div class="col-md-6">
+      <dl>
+        <dt>Image</dt>
+        <dd><img src="<%= @the_vehicle.image %>" class="img-thumbnail" style="width:500px;"></dd>
+      </dl>
+    </div>
+    <div class="col-md-6">
+      <dl>
+        <dt>Year</dt>
+        <dd><%= @the_vehicle.year %></dd>
+      </dl>
+    </div>
+    <div class="col-md-6">
+      <dl>
+        <dt>Make</dt>
+        <dd><%= @the_vehicle.make %></dd>
+      </dl>
+    </div>
+    <div class="col-md-6">
+      <dl>
+        <dt>Model</dt>
+        <dd><%= @the_vehicle.model %></dd>
+      </dl>
+    </div>
+    <div class="col-md-6">
+      <dl>
+        <dt>Color</dt>
+        <dd><%= @the_vehicle.color %></dd>
+      </dl>
+    </div>
+    <div class="col-md-6">
+      <dl>
+        <dt>Trips count</dt>
+        <dd><%= @the_vehicle.trips_count %></dd>
+      </dl>
+    </div>
+    <div class="col-md-6">
+      <dl>
+        <dt>Jobs count</dt>
+        <dd><%= @the_vehicle.jobs_count %></dd>
+      </dl>
+    </div>
+    <div class="col-md-6">
+      <dl>
+        <dt>Created at</dt>
+        <dd><%= time_ago_in_words(@the_vehicle.created_at) %> ago</dd>
+      </dl>
+    </div>
+    <div class="col-md-6">
+      <dl>
+        <dt>Updated at</dt>
+        <dd><%= time_ago_in_words(@the_vehicle.updated_at) %> ago</dd>
+      </dl>
+    </div>
+  </div>
+  <hr>
+  <h2 class="mb-4">Edit vehicle</h2>
+  <form action="/modify_vehicle/<%= @the_vehicle.id %>" method="post">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="vehicle_id">ID</label>
+        <input type="text" class="form-control" id="vehicle_id" name="query_vehicle_id" value="<%= @the_vehicle.id %>">
       </div>
-
-      <div>
-        <a href="/delete_vehicle/<%= @the_vehicle.id %>">
-          Delete vehicle
-        </a>
+      <div class="form-group col-md-6">
+        <label for="image_url_box">Image url</label>
+        <input type="text" class="form-control" id="image_url_box" name="query_image_url" value="<%= @the_vehicle.image %>">
       </div>
     </div>
-
-    <dl>
-      <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @the_vehicle.name %>
-      </dd>
-
-      <dt>
-        Image
-      </dt>
-      <dd>
-        <img src="<%= @the_vehicle.image %>" class="img-thumbnail" style="width:500px;">
-      </dd>
-
-      <dt>
-        Year
-      </dt>
-      <dd>
-        <%= @the_vehicle.year %>
-      </dd>
-
-      <dt>
-        Make
-      </dt>
-      <dd>
-        <%= @the_vehicle.make %>
-      </dd>
-
-      <dt>
-        Model
-      </dt>
-      <dd>
-        <%= @the_vehicle.model %>
-      </dd>
-
-      <dt>
-        Color
-      </dt>
-      <dd>
-        <%= @the_vehicle.color %>
-      </dd>
-
-      <dt>
-        Trips count
-      </dt>
-      <dd>
-        <%= @the_vehicle.trips_count %>
-      </dd>
-
-      <dt>
-        Jobs count
-      </dt>
-      <dd>
-        <%= @the_vehicle.jobs_count %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_vehicle.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_vehicle.updated_at) %> ago
-      </dd>
-    </dl>
-  </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="year_box">Year</label>
+        <input type="text" class="form-control" id="year_box" name="query_year" value="<%= @the_vehicle.year %>">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="make_box">Make</label>
+        <input type="text" class="form-control" id="make_box" name="query_make" value="<%= @the_vehicle.make %>">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="model_box">Model</label>
+        <input type="text" class="form-control" id="model_box" name="query_model" value="<%= @the_vehicle.model %>">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="color_box">Color</label>
+        <input type="text" class="form-control" id="color_box" name="query_color" value="<%= @the_vehicle.color %>">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="trips_count_box">Trips count</label>
+        <input type="text" class="form-control" id="trips_count_box" name="query_trips_count" value="<%= @the_vehicle.trips_count %>">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="jobs_count_box">Jobs count</label>
+        <input type="text" class="form-control" id="jobs_count_box" name="query_jobs_count" value="<%= @the_vehicle.jobs_count %>">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Update vehicle</button>
+  </form>
 </div>
-
 <hr>
 
+<h3>Related Trips (<%= @the_vehicle.trips_count %>)</h3>
 
-<div>
-  <div>
-    <h2>
-      Edit vehicle
-    </h2>
+<table class="table table-hover table-bordered table-striped">
+  <tr>
+    <th>
+      Trip ID
+    </th>
 
-    <form action="/modify_vehicle/<%= @the_vehicle.id %>"  method="post" >
-      <div>
-        <label for="vehilce_id">
-          ID
-        </label>
+    <th>
+      Reservation #
+    </th>
 
-        <input type="text" id="vehicle_id" name="query_vehicle_id" value="<%= @the_vehicle.id %>">
-      </div>
+    <th>
+      Guest
+    </th>
 
-      <div>
-        <label for="image_url_box">
-          Image url
-        </label>
+  </tr>
 
-        <input type="text" id="image_url_box" name="query_image_url" value="<%= @the_vehicle.image %>">
-      </div>
+  <% @the_vehicle.trips.each do |a_trip| %>
+    <tr>
+      <td>
+        <%= a_trip.id %>
+      </td>
 
-      <div>
-        <label for="year_box">
-          Year
-        </label>
+      <td>
+        <%= a_trip.turo_reservation_number %>
+      </td>
 
-        <input type="text" id="year_box" name="query_year" value="<%= @the_vehicle.year %>">
-      </div>
+      <td>
+        <%= a_trip.guest.name %>
+      </td>
 
-      <div>
-        <label for="make_box">
-          Make
-        </label>
-
-        <input type="text" id="make_box" name="query_make" value="<%= @the_vehicle.make %>">
-      </div>
-
-      <div>
-        <label for="model_box">
-          Model
-        </label>
-
-        <input type="text" id="model_box" name="query_model" value="<%= @the_vehicle.model %>">
-      </div>
-
-      <div>
-        <label for="color_box">
-          Color
-        </label>
-
-        <input type="text" id="color_box" name="query_color" value="<%= @the_vehicle.color %>">
-      </div>
-
-      <div>
-        <label for="trips_count_box">
-          Trips count
-        </label>
-
-        <input type="text" id="trips_count_box" name="query_trips_count" value="<%= @the_vehicle.trips_count %>">
-      </div>
-
-      <div>
-        <label for="jobs_count_box">
-          Jobs count
-        </label>
-
-        <input type="text" id="jobs_count_box" name="query_jobs_count" value="<%= @the_vehicle.jobs_count %>">
-      </div>
-
-      <button>
-        Update vehicle
-      </button>
-    </form>
-  </div>
-</div>
-
-<hr>
+      <td>
+        <a href="/trips/<%= a_trip.id %>">
+          Trip details
+        </a>
+      </td>
+    </tr>
+  <% end %>
+</table>

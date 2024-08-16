@@ -15,34 +15,29 @@
     </h2>
 
     <form action="/insert_job" method="post">
-      <div>
-        <label for="trip_id_box">
-          Trip ID
-        </label>
+  <div class="form-group">
+    <label for="trip_id_box">Trip ID</label>
+    <input type="text" class="form-control" id="trip_id_box" name="query_trip_id" placeholder="Enter a trip ID">
+  </div>
 
-        <input type="text" id="trip_id_box" name="query_trip_id" placeholder="Enter a trip ID">
-      </div>
+  <div class="form-group">
+    <label for="name_box">Job Name</label>
+    <select class="custom-select" id="name_box" name="query_name">
+      <option selected>Choose...</option>
+      <option value="Job1">Check-in</option>
+      <option value="Job2">Check-out</option>
+      <option value="Job3">Car Detail</option>
+      <option value="Job3">Load Childseat</option>
+    </select>
+  </div>
 
-      <div>
-        <label for="name_box">
-          Job Name
-        </label>
+  <div class="form-group">
+    <label for="employee_id_box">Employee ID</label>
+    <input type="text" class="form-control" id="employee_id_box" name="query_employee_id" placeholder="Enter an employee ID">
+  </div>
 
-        <input type="text" id="name_box" name="query_name">
-      </div>
-
-      <div>
-        <label for="employee_id_box">
-          Employee ID
-        </label>
-
-        <input type="text" id="employee_id_box" name="query_employee_id">
-      </div>
-
-      <button>
-        Create job
-      </button>
-    </form>
+  <button type="submit" class="btn btn-primary">Create job</button>
+</form>
   </div>
 </div>
 

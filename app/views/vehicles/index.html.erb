@@ -8,91 +8,58 @@
 
 <hr>
 
-<div>
-  <div>
-    <h2>
-      Add a new vehicle
-    </h2>
-
+<div class="container mt-5">
+    <h2 class="mb-4">Add a new vehicle</h2>
     <form action="/insert_vehicle" method="post">
-      <div>
-        <label for="vehicle_id">
-          Vehicle ID
-        </label>
-
-        <input type="text" id="vehicle_id" name="query_vehicle_id" placeholder="Enter a vehicle ID">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="vehicle_id">Vehicle ID</label>
+          <input type="text" class="form-control" id="vehicle_id" name="query_vehicle_id" placeholder="Enter a vehicle ID">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="image_url_box">Image URL</label>
+          <input type="text" class="form-control" id="image_url_box" name="query_image_url" placeholder="Enter an image URL">
+        </div>
       </div>
-
-      <div>
-        <label for="image_url_box">
-          Image URL
-        </label>
-
-        <input type="text" id="image_url_box" name="query_image_url" placeholder="Enter an image URL">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="license_plate">License Plate</label>
+          <input type="text" class="form-control" id="license_plate" name="query_license_plate" placeholder="Enter a license plate">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="year_box">Year</label>
+          <input type="text" class="form-control" id="year_box" name="query_year" placeholder="Enter a year for the car">
+        </div>
       </div>
-
-      <div>
-        <label for="license_plate">
-          License Plate
-        </label>
-
-        <input type="text" id="license_plate" name="query_license_plate" placeholder="Enter a license plate">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="make_box">Make</label>
+          <input type="text" class="form-control" id="make_box" name="query_make" placeholder="Enter the car's make">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="model_box">Model</label>
+          <input type="text" class="form-control" id="model_box" name="query_model" placeholder="Enter the car's model">
+        </div>
       </div>
-
-      <div>
-        <label for="year_box">
-          Year
-        </label>
-
-        <input type="text" id="year_box" name="query_year" placeholder="Enter a year for the car">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="color_box">Color</label>
+          <input type="text" class="form-control" id="color_box" name="query_color" placeholder="Enter the car's color">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="trips_count_box">Trips count</label>
+          <input type="text" class="form-control" id="trips_count_box" name="query_trips_count" placeholder="How many trips has the car been on?">
+        </div>
       </div>
-
-      <div>
-        <label for="make_box">
-          Make
-        </label>
-
-        <input type="text" id="make_box" name="query_make" placeholder="Enter the car's make">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="jobs_count_box">Jobs count</label>
+          <input type="text" class="form-control" id="jobs_count_box" name="query_jobs_count" placeholder="How many jobs have been completed on this car?">
+        </div>
       </div>
-
-      <div>
-        <label for="model_box">
-          Model
-        </label>
-
-        <input type="text" id="model_box" name="query_model" placeholder="Enter the car's model">
-      </div>
-
-      <div>
-        <label for="color_box">
-          Color
-        </label>
-
-        <input type="text" id="color_box" name="query_color" placeholder="Enter the car's color">
-      </div>
-
-      <div>
-        <label for="trips_count_box">
-          Trips count
-        </label>
-
-        <input type="text" id="trips_count_box" name="query_trips_count" placeholder="How many trips has the car been on?">
-      </div>
-
-      <div>
-        <label for="jobs_count_box">
-          Jobs count
-        </label>
-
-        <input type="text" id="jobs_count_box" name="query_jobs_count" placeholder="How many jobs have been completed on this car?">
-      </div>
-
-      <button class="btn btn-outline-primary">Create Vehicle</button>
-
+      <button type="submit" class="btn btn-outline-primary">Create Vehicle</button>
     </form>
   </div>
-</div>
-
 <hr>
 
 <div>
